@@ -47,3 +47,10 @@ or, alternatively
 * byte GetRed();
 
 void SetRed(byte value);
+
+
+This project contains a series of pre-programmed tests that will validate the implementation of your custom math data types.
+
+To ensure that your code functions correctly, you will use a Unit Test Project to test the accuracy of your mathematical methods in the code you have written for your Maths Data Types.
+
+To demonstrate competency in this subject your custom data types must pass all unit tests provided.
