@@ -56,61 +56,59 @@ To demonstrate competency in this subject your custom data types must pass all u
 
 
  * Initial understanding:
- * The "custom data types" I have to create will each be a class, which means I'll be creating 5 classes for this task on top of a header Program class.
- * Each class should have a minimum of one default constructor, and if applicable, an overloaded constructor which allows the parameters to be set individually.
- * The overloads do not differentiate between the two types of vectors or the two types of matrices, which means that each one will need 2 overloads for each calculation (eg v3 + v3, v3 + v4, v3 - v3, v3 - v4, etc)
+ * The "custom data types" I have to create will each be a struct, which means I'll be creating 5 structs for this task on top of a header Program class. Initially I planned to use classes, but upon further reading, it became clear this was not the ideal way to implement vectors in C#.
+ * 
+ * Each struct will have one overloaded constructor, because structs do not have default constructors. The parameters have to be able to be set individually (eg x, y and z).
+ * 
+ * Each Type (struct) must "... implement methods for, in all instances, translation, scale, magnitude, normalisation, cross product and dot product." 
+ * 
+ *      Does this mean that the head program class needs these 6 methods, and the structs must be able to be passed to them, or that EACH struct needs 6 methods?
+ * 
+ * 
  * 
  * 
  *  INITIAL PLAN OF PROGRAM LAYOUT
- * 1.0.0.0      Class       Program
- * 1.0.1.0      Method      Normalize()
- * 1.0.2.0      Method      setRotateX( f )
- * 1.0.3.0.     Method      setRotateY( f )
- * 1.0.4.0.     Method      setRotateZ( f )
+ * 1.0.0.0      Class                   Program
+ * 1.0.1.0      Method                  Normalize()
+ * 1.0.2.0      Method                  setRotateX( f )
+ * 1.0.3.0      Method                  setRotateY( f )
+ * 1.0.4.0      Method                  setRotateZ( f )
  * 
- * 2.0.0.0      Class       Vector3   (3-dimensional vector using 3 floats)
- * 2.1.0.0      Constructor Default
- * 2.2.0.0      Constructor Overload (3 floats)
- * 2.3.0.0      Operator    +  (Overload: Vector3 + Vector3)
- * 2.4.0.0      Operator    +  (Overload: Vector3 + Vector3)
- * 2.5.0.0      Operator    -  (Overload: Vector3 - Vector3)
- * 2.6.0.0      Operator    -  (Overload: Vector3 - Vector4)
- * 2.7.0.0      Operator    *  (Overload: Vector3 x f [Vector3.magnitude]) 
- * 2.8.0.0      Operator    *  (Overload: Vector3 x f [Vector4.magnitude]) 
- * 2.9.0.0      Operator    *  (Overload: [Vector3.magnitude] x Vector3) 
- * 2.10.0.0     Operator    *  (Overload: [Vector3.magnitude] x Vector4) 
- * 2.11.0.0     Operator    *  (Overload: Matrix3 x Vector3)
- * 2.12.0.0     Operator    *  (Overload: Matrix4 x Vector3)
- * 2.13.0.0     Operator    ?  (Overload: Vector3.Cross [Vector3])
- * 2.14.0.0     Operator    ?  (Overload: Vector3.Cross [Vector4])
+ * 2.1.0.0      Struct                  Vector3     (3 floats)
+ * 2.1.0.1          Variable            x   (float) (default automatically-initialised variable for every new struct)
+ * 2.1.0.2          Variable            y   (float) (default automatically-initialised variable for every new struct)   
+ * 2.1.0.3          Variable            z   (float) (default automatically-initialised variable for every new struct)
+ *   
+ * 2.1.1.0          Constructor Overload    (3 floats)
+ * 2.1.1.1              Variable        _x  (float) (x-axis value to be passed to the constructor, overwrites the default)
+ * 2.1.1.2              Variable        _y  (float) (y-axis value to be passed to the constructor, overwrites the default)
+ * 2.1.1.3              Variable        _z  (float) (z-axis value to be passed to the constructor, overwrites the default)
+ *   
+ * 2.1.2.0          Operator overload   +   (Vector3 + Vector3)
+ * 2.1.3.0          Operator overload   -   (Vector3 - Vector3)
+ * 2.1.4.0          Operator overload   *   (Vector3 x f [Vector3.magnitude]) 
+ * 2.1.5.0          Operator overload   *   ([Vector3.magnitude] x Vector3) 
+ * 2.1.6.0          Operator overload   /   (Vector3 / f [Vector3.magnitude]) 
+ * 2.1.7.0          Operator overload   /   ([Vector3.magnitude] / Vector3) 
  * 
- * 3.0.0.0      Class       Vector4   (3-dimensional homogeneous vector using 4 floats)
- * 3.1.0.0      Constructor Default
- * 3.2.0.0      Constructor Overload (4 floats)
- * 3.3.0.0      Operator    +  (Overload: Vector4 + Vector3)
- * 3.4.0.0      Operator    +  (Overload: Vector4 + Vector3)
- * 3.5.0.0      Operator    -  (Overload: Vector4 - Vector3)
- * 3.6.0.0      Operator    -  (Overload: Vector4 - Vector4)
- * 3.7.0.0      Operator    *  (Overload: Vector4 x f [Vector3.magnitude]) 
- * 3.8.0.0      Operator    *  (Overload: Vector4 x f [Vector4.magnitude]) 
- * 3.9.0.0      Operator    *  (Overload: [Vector4.magnitude] x Vector3) 
- * 3.10.0.0     Operator    *  (Overload: [Vector4.magnitude] x Vector4) 
- * 3.11.0.0     Operator    *  (Overload: Matrix3 x Vector4)
- * 3.12.0.0     Operator    *  (Overload: Matrix4 x Vector4)
- * 3.13.0.0     Operator    ?  (Overload: Vector4.Cross [Vector3])
- * 3.14.0.0     Operator    ?  (Overload: Vector4.Cross [Vector4])
+ * 2.1.8.0          Operator overload   *   (Matrix3 x Vector3)
+ * 2.1.9.0          Operator overload   ?   (Vector3.Cross [Vector3])
  * 
- * 4.0.0.0      Class       Matrix3   (2-dimensional 3x3 rotation matrix using 9 float)
- * 4.1.0.0      Constructor Default
- * 4.2.0.0      Constructor Overload (9 floats)
- * 4.3.0.0      Operator    * (Overload: Matrix3 * Matrix3)
- * 4.4.0.0      Operator    * (Overload: Matrix3 * Matrix4)
+
+
+
  * 
- * 5.0.0.0      Class       Matrix4   (3-dimensional 4x4 transform matrix using 16 float)
- * 5.1.0.0      Constructor Default
- * 5.2.0.0      Constructor Overload (16 floats)
- * 5.3.0.0      Operator    * (Overload: Matrix4 * Matrix3)
- * 5.4.0.0      Operator    * (Overload: Matrix4 * Matrix4)
+ * 4.0.0.0      Struct       Matrix3   (2-dimensional 3x3 rotation matrix using 9 float)
+ * 4.1.0.0          Constructor Default
+ * 4.2.0.0          Constructor Overload (9 floats)
+ * 4.3.0.0          Operator    * (Overload: Matrix3 * Matrix3)
+ * 4.4.0.0          Operator    * (Overload: Matrix3 * Matrix4)
+ * 
+ * 5.0.0.0      Struct       Matrix4   (3-dimensional 4x4 transform matrix using 16 float)
+ * 5.1.0.0          Constructor Default
+ * 5.2.0.0          Constructor Overload (16 floats)
+ * 5.3.0.0          Operator    * (Overload: Matrix4 * Matrix3)
+ * 5.4.0.0          Operator    * (Overload: Matrix4 * Matrix4)
  * 
  * 6.0.0.0      Class       Colour    (RGBA values stored as a 4 byte integer)
  * 6.1.0.0      Constructor Default
