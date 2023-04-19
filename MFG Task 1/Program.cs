@@ -144,12 +144,17 @@ To demonstrate competency in this subject your custom data types must pass all u
  * 4.1.1.9              Variable        _m22 (float) // (Vector C z-axis value to be passed to the constructor, overwrites the default)
  * 
  * 4.1.2.0          Operator overload   *   (Matrix3 * Vector3)         TRANSFORM: SCALE (vector multiplication)
- * 4.1.3.0          Operator overload   *   (Matrix3 * Matrix3)         TRANSFORM: SCALE (matrix multiplication)
+ * 4.1.3.0          Operator overload   *   (Matrix3 * Matrix3)         Matrix multiplication
  * 
  * 4.2.0.0      Method (void)           setRotateX(1 float)
  * 4.3.0.0      Method (void)           setRotateY(1 float)
  * 4.4.0.0      Method (void)           setRotateZ(1 float)
  * 4.5.0.0      Method (void)           TransposeMatrix(Matrix3)
+ * 4.6.0.0      Method (void)           setScaleX(1 float)
+ * 4.7.0.0      Method (void)           setScaleY(1 float)
+ * 4.8.0.0      Method (void)           setScaleZ(1 float)
+ * 4.9.0.0      Method (void)           setScaleAll(3 floats)
+ * 
 
  * 5.1.0.0      Struct       Matrix4   (3-dimensional 4x4 transform matrix using 16 float)
  * 5.1.0.1          Variable            m00 (float)  (default automatically-initialised variable for every new struct) 
@@ -194,11 +199,14 @@ To demonstrate competency in this subject your custom data types must pass all u
  * 5.3.0.0      Method (void)           setRotateY(1 float)
  * 5.4.0.0      Method (void)           setRotateZ(1 float)
  * 5.5.0.0      Method (void)           TransposeMatrix(Matrix4)
- * 
- * 
- * 6.0.0.0      Class       Colour    (RGBA values stored as a 4 byte integer)
- * 6.1.0.0      Constructor Default
- * 6.2.0.0      Constructor Overload (4 byte integer)
+
+
+ * 6.1.0.0      Struct       Colour     (RGBA values stored as a 4 byte integer)
+ * 6.1.1.0          Constructor Overload    (4 bytes as integers)
+ * 6.1.1.1              Variable        Byte
+ * 6.1.1.2              Variable        Byte
+ * 6.1.1.3              Variable        Byte
+ * 6.1.1.4              Variable        Byte
  * 
  *
  */
