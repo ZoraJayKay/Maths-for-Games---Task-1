@@ -82,8 +82,8 @@ To demonstrate competency in this subject your custom data types must pass all u
  * 2.1.1.2              Variable        _y  (float) (y-axis value to be passed to the constructor, overwrites the default)
  * 2.1.1.3              Variable        _z  (float) (z-axis value to be passed to the constructor, overwrites the default)
  *   
- * 2.1.2.0          Operator overload   +   (Vector3 + Vector3)         TRANSLATION: ADDITION
- * 2.1.3.0          Operator overload   -   (Vector3 - Vector3)         TRANSLATION: SUBTRACTION
+ * 2.1.2.0          Operator overload   +   (Vector3 + Vector3)         TRANSFORM: ADDITION
+ * 2.1.3.0          Operator overload   -   (Vector3 - Vector3)         TRANSFORM: SUBTRACTION
  * 2.1.4.0          Operator overload   *   (Vector3 x float)           TRANSFORM: SCALE (float multiplication)
  * 2.1.5.0          Operator overload   *   (float x Vector3)           TRANSFORM: SCALE (float multiplication)
  * 2.1.6.0          Operator overload   /   (Vector3 / float)           TRANSFORM: SCALE (float division)
@@ -99,7 +99,7 @@ To demonstrate competency in this subject your custom data types must pass all u
  * 3.1.0.1          Variable            x   (float) (default automatically-initialised variable for every new struct)
  * 3.1.0.2          Variable            y   (float) (default automatically-initialised variable for every new struct)   
  * 3.1.0.3          Variable            z   (float) (default automatically-initialised variable for every new struct)
- * 3.1.0.3          Variable            w   (float) (default automatically-initialised variable for every new struct)
+ * 3.1.0.4          Variable            w   (float) (default automatically-initialised variable for every new struct)
  *  
  * 3.1.1.0          Constructor Overload    (4 floats)
  * 3.1.1.1              Variable        _x  (float) (x-axis value to be passed to the constructor, overwrites the default)
@@ -143,17 +143,25 @@ To demonstrate competency in this subject your custom data types must pass all u
  * 4.1.1.8              Variable        _m21 (float) // (Vector B z-axis value to be passed to the constructor, overwrites the default)
  * 4.1.1.9              Variable        _m22 (float) // (Vector C z-axis value to be passed to the constructor, overwrites the default)
  * 
+ * 
+ * 4.1.1.10          Constructor Overload (1 floats)
+ * 4.1.1.11              Variable        _m00 (float) // (Vector A x-axis value to be passed to the constructor, overwrites the default)
+ 
+ * 
  * 4.1.2.0          Operator overload   *   (Matrix3 * Vector3)         TRANSFORM: SCALE (vector multiplication)
  * 4.1.3.0          Operator overload   *   (Matrix3 * Matrix3)         Matrix multiplication
  * 
- * 4.2.0.0      Method (void)           setRotateX(1 float)
- * 4.3.0.0      Method (void)           setRotateY(1 float)
- * 4.4.0.0      Method (void)           setRotateZ(1 float)
+ * 4.2.0.0      Method (void)           SetRotateX(1 float)
+ * 4.3.0.0      Method (void)           SetRotateY(1 float)
+ * 4.4.0.0      Method (void)           SetRotateZ(1 float)
  * 4.5.0.0      Method (void)           TransposeMatrix(Matrix3)
- * 4.6.0.0      Method (void)           setScaleX(1 float)
- * 4.7.0.0      Method (void)           setScaleY(1 float)
- * 4.8.0.0      Method (void)           setScaleZ(1 float)
- * 4.9.0.0      Method (void)           setScaleAll(3 floats)
+ * 4.6.0.0      Method (void)           SetScaleX(1 float)
+ * 4.7.0.0      Method (void)           SetScaleY(1 float)
+ * 4.8.0.0      Method (void)           SetScaleZ(1 float)
+ * 4.9.0.0      Method (void)           SetScaleAll(3 floats)
+ * 4.10.0.0     Method (void)           SetTranslation(2 floats)
+ * 4.11.0.0     Method (void)           Translate(2 floats)
+ * 
  * 
 
  * 5.1.0.0      Struct       Matrix4   (3-dimensional 4x4 transform matrix using 16 float)
@@ -199,15 +207,6 @@ To demonstrate competency in this subject your custom data types must pass all u
  * 5.3.0.0      Method (void)           setRotateY(1 float)
  * 5.4.0.0      Method (void)           setRotateZ(1 float)
  * 5.5.0.0      Method (void)           TransposeMatrix(Matrix4)
-
-
- * 6.1.0.0      Struct       Colour     (RGBA values stored as a 4 byte integer)
- * 6.1.1.0          Constructor Overload    (4 bytes as integers)
- * 6.1.1.1              Variable        Byte
- * 6.1.1.2              Variable        Byte
- * 6.1.1.3              Variable        Byte
- * 6.1.1.4              Variable        Byte
- * 
  *
  */
 
